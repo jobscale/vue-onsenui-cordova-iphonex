@@ -1,5 +1,7 @@
 <template>
-  <v-ons-page>
+  <v-ons-page
+    @deviceBackButton.prevent="backButton"
+  >
     <v-ons-toolbar>
       <div class="left">
         <v-ons-toolbar-button>
@@ -63,6 +65,9 @@ export default {
     },
   },
   methods: {
+    backButton(event) {
+      console.log({ notePage: event });
+    },
     showNewNotePage() {
       this.$emit('push-page', NewNotePage);
     },

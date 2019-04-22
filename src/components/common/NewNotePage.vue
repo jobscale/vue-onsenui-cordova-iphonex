@@ -1,5 +1,7 @@
 <template>
-  <v-ons-page>
+  <v-ons-page
+    @deviceBackButton.prevent="backButton"
+  >
     <v-ons-toolbar>
       <div class="left">
         <v-ons-toolbar-button @click="$emit('pop-page')">
@@ -44,6 +46,9 @@ export default {
     };
   },
   methods: {
+    backButton(event) {
+      console.log({ newNotePage: event });
+    },
     done() {
       this.$store.commit('addNote', {
         title: this.title,
